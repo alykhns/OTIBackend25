@@ -14,10 +14,20 @@ export class AuthService {
 
     async validateUser(username: string, password: string): Promise<any> {
         const user = await this.usersService.findOneByUsername(username);
+        console.log('User found:', user ? 'YES' : 'NO');
+        console.log('Username:', username);
+        
         if (!user) {
+            console.log('User not found in database');
             return null;
         }
+        
+        console.log('Password from input:', password);
+        console.log('Hashed password from DB:', user.password);
+        
         const valid = await bcrypt.compare(password, user.password);
+        console.log('Password valid:', valid);
+        
         if (valid) {
             const { password: _pw, ...result } = user;
             return result;
@@ -40,10 +50,9 @@ export class AuthService {
         if(user){
             throw new UnauthorizedException('User already exists');
         }
-        const password = await bcrypt.hash(loginUserInput.password, 10);
         return this.usersService.create({
-            ...loginUserInput,
-            password,
+            username: loginUserInput.username,
+            password: loginUserInput.password,
         });
     }
 }

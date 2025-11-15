@@ -1,41 +1,37 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserInput } from './dto/create-user.input';
+import { CreateUserInput } from '../auth/dto/create-user-input';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from './entities/user.entity';
+import * as bcrypt from 'bcrypt';
+
 
 @Injectable()
 export class UsersService {
-  private readonly users = [
-    {
-      id: 1,
-      username: 'Aliya',
-      password: 'not-secure',
-    },
-    {
-      id: 2,
-      username: 'Rafathin',
-      password: 'not-secure',
-    }
 
-  ];
+  constructor(
+    @InjectRepository(User)
+    private usersRepository: Repository<User>,
+  ) {}
 
-  create(createUserInput: CreateUserInput) {
-    const user = {
-      ...createUserInput,
-      id: this.users.length + 1,
-    };
-    this.users.push(user);
-    console.log(this.users);
-    return user;
+  async create(createUserInput: CreateUserInput): Promise<User> {
+    const hashedPassword = await bcrypt.hash(createUserInput.password, 10);
+    const newUser = this.usersRepository.create({
+      username: createUserInput.username,
+      password: hashedPassword, 
+    });
+    return this.usersRepository.save(newUser);
   }
 
-  findAll() {
-    return this.users;
+  async findOneByUsername(username: string): Promise<User | null> {
+    return this.usersRepository.findOneBy({ username });
   }
 
-  findOne(id: number) {
-    return this.users.find( user => user.id === id);
+  async findOne(id: number): Promise<User | null> {
+    return this.usersRepository.findOneBy({ id });
   }
 
-  findOneByUsername(username: string) {
-    return this.users.find(user => user.username === username);
+  async findAll(): Promise<User[]> {
+    return this.usersRepository.find(); 
   }
 }
