@@ -30,9 +30,11 @@ import { AuthResolver } from './auth/auth.resolver';
         url: configService.get<string>('DATABASE_URL'), 
         entities: [User],
         synchronize: true,
+        ssl: true,
+        extra: {
         ssl: {
           rejectUnauthorized: false,
-        },
+        }},
       }),
     }),
   ],
