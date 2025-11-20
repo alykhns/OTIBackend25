@@ -47,7 +47,7 @@ mutation {
     "data": {
         "signup": {
             "id": 6,
-            "username": "Auryn"
+            "username": "Aya"
         }
     }
 }
