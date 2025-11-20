@@ -1,7 +1,7 @@
 # Penugasan Open Recruitment BackEnd OmahTI 2025
 
-**Oleh**: Aliya Khairun Nisa (KOMA 24)
-**Deploy URL**: `https://oti-backend25.vercel.app/graphql`
+- **Oleh**: Aliya Khairun Nisa (KOMA 24)
+- **Deploy URL**: `https://oti-backend25.vercel.app/graphql`
 
 ## Tech Stack
 
