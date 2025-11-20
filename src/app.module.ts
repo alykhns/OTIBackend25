@@ -7,7 +7,6 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
-import { AuthResolver } from './auth/auth.resolver';
 
 @Module({
   imports: [
@@ -15,9 +14,10 @@ import { AuthResolver } from './auth/auth.resolver';
     AuthModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(),'src/schema.gql'),
+      autoSchemaFile: process.env.NODE_ENV === 'production' ? true : join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
       introspection: true,
+      graphiql: true,
     }),
     ConfigModule.forRoot({
       isGlobal: true,
