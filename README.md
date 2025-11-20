@@ -20,38 +20,8 @@
 - **SQL Injection Protection**: TypeORM with parameterized queries
 - **Input Validation**: class-validator decorators with global ValidationPipe 
 
-## Installation 
-
-### Prerequisites
-- Node.js (v18+)
-- npm atau yarn
-- Supabase
-
-### Setup
-```bash
-git clone https://github.com/alykhns/OTIBackend25.git
-cd OTIBackend25
-npm install
-```
-
-```env
-DATABASE_URL=postgresql://postgres:Akai2186@db.havajtjzntqpoorbthtr.supabase.co:5432/postgres
-```
-
-```bash
-npm run start:dev
-```
-
-Server akan running di `http://localhost:3000/graphql`
-
 ## API Documentation & Testing (Postman)
-```
-https://oti-backend25.vercel.app/graphql
-```
-```
-http://localhost:3000/graphql
-```
-Semua request menggunakan **POST** method dengan **GraphQL** body type.
+Semua request menggunakan **POST** method dengan **GraphQL** body type dengan URL `https://oti-backend25.vercel.app/graphql`. Jika link tersebut tidak bisa maka install project ini (Prosedur installation ada di bawah) lalu testing pakai `http://localhost:3000/graphql`
 
 
 ## Test Cases
@@ -440,3 +410,27 @@ mutation {
   ]
 }
 ```
+
+## Installation 
+
+### Prerequisites
+- Node.js (v18+)
+- npm atau yarn
+- Supabase
+
+### Setup
+```bash
+git clone https://github.com/alykhns/OTIBackend25.git
+cd OTIBackend25
+npm install
+```
+
+```env
+DATABASE_URL=postgresql://postgres:Akai2186@db.havajtjzntqpoorbthtr.supabase.co:5432/postgres
+```
+
+```bash
+npm run start:dev
+```
+
+Server akan running di `http://localhost:3000/graphql`
