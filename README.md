@@ -21,7 +21,8 @@
 - **Input Validation**: class-validator decorators with global ValidationPipe 
 
 ## API Documentation & Testing (Postman)
-Semua request menggunakan **POST** method dengan **GraphQL** body type dengan URL `https://oti-backend25.vercel.app/graphql`. Jika link tersebut tidak bisa maka install project ini (Prosedur installation ada di bawah) lalu testing pakai `http://localhost:3000/graphql`
+Semua request menggunakan **POST** method dengan **GraphQL** body type dengan URL `https://oti-backend25.vercel.app/graphql`. Jika link tersebut tidak bisa maka install project ini (Prosedur installation ada di bawah) lalu testing pakai `http://localhost:3000/graphql`.
+- Note: Jawaban pada semua kolom 'Expected Response' saya singkat agar tidak terlalu panjang, namun aslinya lebih panjang saat ditest di postman atau di GraphiQL
 
 
 ## Test Cases
