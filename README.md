@@ -1,7 +1,7 @@
 # Penugasan Open Recruitment BackEnd OmahTI 2025
 
 **Oleh**: Aliya Khairun Nisa (KOMA 24)
-**Deploy URL**: `Coming soon...`
+**Deploy URL**: `https://oti-backend25.vercel.app/graphql`
 
 ## Tech Stack
 
@@ -25,7 +25,7 @@
 ### Prerequisites
 - Node.js (v18+)
 - npm atau yarn
-- PostgreSQL database (atau gunakan Supabase)
+- Supabase
 
 ### Setup
 ```bash
@@ -45,6 +45,9 @@ npm run start:dev
 Server akan running di `http://localhost:3000/graphql`
 
 ## API Documentation & Testing (Postman)
+```
+https://oti-backend25.vercel.app/graphql
+```
 ```
 http://localhost:3000/graphql
 ```
